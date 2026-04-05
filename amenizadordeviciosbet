@@ -1,0 +1,29 @@
+# dados iniciais
+dinheirocontabet = 0
+horadeposito = 0  # última vez que depositou (em horas)
+
+# entrada do usuário
+hora_atual = int(input("Hora atual: "))
+depositonovo = float(input("Valor do depósito: "))
+
+# verifica se quer depositar
+if depositonovo > 0:
+
+    horas_passadas = hora_atual - horadeposito
+
+    if horas_passadas < 24:
+        print("Depósito inválido: só pode 1 a cada 24h")
+
+    else:
+        if depositonovo <= 10:
+            dinheirocontabet += depositonovo
+            horadeposito = hora_atual
+            print("Depósito realizado!")
+        else:
+            print("Erro: depósito máximo é 10")
+
+# aposta (usa todo o saldo)
+if dinheirocontabet > 0:
+    print("Você pode apostar com:", dinheirocontabet)
+else:
+    print("Sem saldo para apostar")
